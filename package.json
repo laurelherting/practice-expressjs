@@ -1,10 +1,11 @@
-
+{
   "name": "practice-expressjs",
   "version": "1.0.0",
-  "description": "Practice using ExpressJS",
+  "description": "practice expressjs",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
