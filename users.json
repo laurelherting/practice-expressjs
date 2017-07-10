@@ -1,0 +1,22 @@
+[
+  {
+    "gender": "male",
+    "name": {
+      "title": "mr",
+      "first": "adam",
+      "last": "sadler"
+    },
+    "email": "adam.sadler@example.com",
+    "username": "funnyguy1224"
+  },
+  {
+    "gender": "female",
+    "name": {
+      "title": "mrs",
+      "first": "cameron",
+      "last": "flin"
+    },
+    "email": "cameron.flin@example.com",
+    "username": "onfireforthis09"
+  }
+]
