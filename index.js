@@ -24,10 +24,6 @@ app.get('/', function (req, res) {
   res.send(buffer)
 })
 
-app.get('/', function (req, res) {
-  res.send('Hello world')
-})
-
 app.get('/ye', function (req, res) {
   res.send('YE!')
 })
