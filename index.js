@@ -15,13 +15,11 @@ fs.readFile('users.json', {encoding: 'utf8'}, function (err, data) {
 
 })
 
-app.get('/', function (req, res) {
-  let buffer = ''
+app.set('views', './views')
+app.set('view engine', 'jade')
 
-  users.forEach(function (user) {
-    buffer += '<a href="/' + user.username + '">' + user.name.full + '</a><br>'
-  })
-  res.send(buffer)
+app.get('/', function (req, res) {
+  res.render('index', {users: users})
 })
 
 app.get(/gizmo.*/, function (req, res, next) {
