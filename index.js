@@ -4,6 +4,7 @@ let app = express()
 let fs = require('fs')
 let _ = require('lodash')
 let users = []
+let engines = require('consolidate')
 
 fs.readFile('users.json', {encoding: 'utf8'}, function (err, data) {
   if (err) throw err
@@ -15,21 +16,13 @@ fs.readFile('users.json', {encoding: 'utf8'}, function (err, data) {
 
 })
 
+app.engine('hbs',engines.handlebars)
+
 app.set('views', './views')
-app.set('view engine', 'jade')
+app.set('view engine', 'hbs')
 
 app.get('/', function (req, res) {
   res.render('index', {users: users})
-})
-
-app.get(/gizmo.*/, function (req, res, next) {
-  console.log('GIZMO USER ACCESS')
-  next()
-})
-
-app.get(/.*cat.*/, function (req, res, next) {
-  console.log('CATS MEOW')
-  next()
 })
 
 app.get('/:username', function (req, res) {
