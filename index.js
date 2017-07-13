@@ -24,12 +24,13 @@ app.get('/', function (req, res) {
   res.send(buffer)
 })
 
-app.get('/ye', function (req, res) {
-  res.send('YE!')
+app.get(/gizmo.*/, function (req, res, next) {
+  console.log('GIZMO USER ACCESS')
+  next()
 })
 
 app.get('/:username', function (req, res) {
-  let username = re.params.username
+  let username = req.params.username
   res.send(username)
 })
 
