@@ -29,6 +29,11 @@ app.get(/gizmo.*/, function (req, res, next) {
   next()
 })
 
+app.get(/.*cat.*/, function (req, res, next) {
+  console.log('CATS MEOW')
+  next()
+})
+
 app.get('/:username', function (req, res) {
   let username = req.params.username
   res.send(username)
