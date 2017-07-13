@@ -15,21 +15,25 @@ fs.readFile('users.json', {encoding: 'utf8'}, function (err, data) {
 
 })
 
-app.get('/', function (req, res) {
-  let buffer = ''
+app.set('views', './views')
+app.set('view engine', 'jade')
 
-  users.forEach(function (user) {
-    buffer += '<a href="/' + user.username + '">' + user.name.full + '</a><br>'
-  })
-  res.send(buffer)
+app.get('/', function (req, res) {
+  res.render('index', {users: users})
 })
 
-app.get('/ye', function (req, res) {
-  res.send('YE!')
+app.get(/gizmo.*/, function (req, res, next) {
+  console.log('GIZMO USER ACCESS')
+  next()
+})
+
+app.get(/.*cat.*/, function (req, res, next) {
+  console.log('CATS MEOW')
+  next()
 })
 
 app.get('/:username', function (req, res) {
-  let username = re.params.username
+  let username = req.params.username
   res.send(username)
 })
 

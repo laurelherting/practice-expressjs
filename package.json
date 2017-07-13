@@ -19,7 +19,10 @@
   },
   "homepage": "https://github.com/laurelherting/practice-expressjs#readme",
   "dependencies": {
+    "consolidate": "^0.14.5",
     "express": "^4.15.3",
+    "handlebars": "^4.0.10",
+    "jade": "^1.11.0",
     "lodash": "^4.17.4"
   },
   "devDepencies": {
