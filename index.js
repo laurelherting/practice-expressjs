@@ -3,8 +3,9 @@ let app = express()
 
 let fs = require('fs')
 let _ = require('lodash')
-let users = []
 let engines = require('consolidate')
+
+let users = []
 
 fs.readFile('users.json', {encoding: 'utf8'}, function (err, data) {
   if (err) throw err
@@ -21,13 +22,15 @@ app.engine('hbs',engines.handlebars)
 app.set('views', './views')
 app.set('view engine', 'hbs')
 
+app.use('/profilepics', express.static('images'))
+
 app.get('/', function (req, res) {
   res.render('index', {users: users})
 })
 
 app.get('/:username', function (req, res) {
   let username = req.params.username
-  res.send(username)
+  res.render('user', {username: username})
 })
 
 let server = app.listen(3000, function () {
