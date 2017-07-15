@@ -1,0 +1,10 @@
+{
+  "gender": "male",
+  "name": {
+    "title": "mr",
+    "first": "paul",
+    "last": "langley"
+  },
+  "email": "paul.langley@example.com",
+  "username": "tigermountain1197678"
+}
