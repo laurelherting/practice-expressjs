@@ -5,7 +5,7 @@
   <title>User Index</title>
   <style>
     * {
-      font-family: Helvetica, Arial, sans-sarif;
+      font-family: Helvetica, Arial, sans-serif;
     }
     div {
       display: flex;
@@ -13,21 +13,15 @@
       padding: 1em;
       font-size: 1.2em;
     }
-
     div a {
       padding-left: 0.5em;
     }
-    </style>
+  </style>
 </head>
 <body>
 
-  <h1>Handlebars</h1>
-    {{#each users as |user|}}
-    <div>
-      <img src="/profilepics/{{user.username}}_sm.jpg" alt="">
-      <a href="/{{user.username}}">{{user.name.full}}</a>
-    </div>
-    {{/each}}
-  
+  <h1>{{username}}</h1>
+  <img src="/profilepics/{{username}}_lg.jpg" alt="">
+
 </body>
 </html>
