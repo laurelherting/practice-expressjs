@@ -1,0 +1,10 @@
+{
+  "gender": "female",
+  "name": {
+    "title": "mrs",
+    "first": "cameron",
+    "last": "flin"
+  },
+  "email": "cameron.flin@example.com",
+  "username": "onfireforthis09"
+}

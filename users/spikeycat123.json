@@ -1,12 +1,10 @@
-[
- {  
-    "gender": "male",
-    "name": {
-      "title": "mr",
-      "first": "freddie",
-      "last": "smith"
-    },
-    "email": "freddie.smith@example.com",
-    "username": "spikeycat123"
+{  
+  "gender": "male",
+  "name": {
+    "title": "mr",
+    "first": "freddie",
+    "last": "smith"
   },
-]
+  "email": "freddie.smith@example.com",
+  "username": "spikeycat123"
+}
