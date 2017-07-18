@@ -66,8 +66,17 @@
     </p>
   </div>
 
-  <h1>{{username}}</h1>
-  <img src="/profilepics/{{username}}_lg.jpg" alt="">
+  <h1>{{username.full}}</h1>
+  <dl>
+    <dd class="edit">
+    <input type="submit" value="Save“ onclick="save()">
+    <input type="submit" value="Cancel“ onclick="cancel()">
+    </dd>
+  </dl>
+    
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"><script>
+  <script>
+  </script>
 
 </body>
 </html>
