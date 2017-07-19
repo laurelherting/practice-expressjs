@@ -12,5 +12,22 @@
     "zip":""
   },
   "email": "freddie.smith@example.com",
-  "username": "spikeycat123"
+  "username": "spikeycat123",
+  "password": "",
+  "salt": "",
+  "md5": "",
+  "sha1": "",
+  "sha256": "",
+  "registered": "",
+  "dob": "",
+  "phone": "",
+  "cell": "",
+  "SSN": "",
+  "picture": "",
+    "large": "",
+    "medium": "",
+    "thumbnail": ""
+  },
+  "version": "",
+  "nationality": ""
 }
