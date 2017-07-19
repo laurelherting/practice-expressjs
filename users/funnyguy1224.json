@@ -5,6 +5,12 @@
     "first": "adam",
     "last": "sadler"
   },
+  "location": {
+    "street": "",
+    "city":"",
+    "state":"",
+    "zip":""
+  },
   "email": "adam.sadler@example.com",
   "username": "funnyguy1224"
 }
