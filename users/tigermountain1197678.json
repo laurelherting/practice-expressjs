@@ -5,6 +5,12 @@
     "first": "paul",
     "last": "langley"
   },
+  "location": {
+    "street": "",
+    "city":"",
+    "state":"",
+    "zip":""
+  },
   "email": "paul.langley@example.com",
   "username": "tigermountain1197678"
 }

@@ -5,6 +5,12 @@
     "first": "cameron",
     "last": "flin"
   },
+  "location": {
+    "street": "",
+    "city":"",
+    "state":"",
+    "zip":""
+  },
   "email": "cameron.flin@example.com",
   "username": "onfireforthis09"
 }
