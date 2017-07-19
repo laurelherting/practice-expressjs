@@ -22,7 +22,7 @@ app.engine('hbs',engines.handlebars)
 app.set('views', './views')
 app.set('view engine', 'hbs')
 
-app.use('/profilepics', express.static('images'))
+app.use('/profilepics', express.static(__dirname + '/images'));
 
 app.get('/', function (req, res) {
   res.render('index', {users: users})
