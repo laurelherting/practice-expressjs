@@ -12,5 +12,24 @@
     "zip":""
   },
   "email": "candy.madrone@example.com",
-  "username": "boobot112"
+  "username": "boobot112",
+  "email": "freddie.smith@example.com",
+  "username": "spikeycat123",
+  "password": "",
+  "salt": "",
+  "md5": "",
+  "sha1": "",
+  "sha256": "",
+  "registered": "",
+  "dob": "",
+  "phone": "",
+  "cell": "",
+  "SSN": "",
+  "picture": {
+    "large": "",
+    "medium": "",
+    "thumbnail": ""
+  },
+  "version": "",
+  "nationality": ""
 }

@@ -12,5 +12,22 @@
     "zip":""
   },
   "email": "paul.langley@example.com",
-  "username": "tigermountain1197678"
+  "username": "tigermountain1197678",
+  "password": "",
+  "salt": "",
+  "md5": "",
+  "sha1": "",
+  "sha256": "",
+  "registered": "",
+  "dob": "",
+  "phone": "",
+  "cell": "",
+  "SSN": "",
+  "picture": {
+    "large": "",
+    "medium": "",
+    "thumbnail": ""
+  },
+  "version": "",
+  "nationality": ""
 }
