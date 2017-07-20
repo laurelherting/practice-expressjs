@@ -6,10 +6,10 @@
     "last": "ham"
   },
   "location": {
-    "street": "",
-    "city":"",
-    "state":"",
-    "zip":""
+    "street": "19 jason street",
+    "city":"avenport",
+    "state":"ct",
+    "zip":"06000"
   },
   "email": "tony.ham@example.com",
   "username": "wildgizmo13",
@@ -17,21 +17,21 @@
   "username": "boobot112",
   "email": "freddie.smith@example.com",
   "username": "spikeycat123",
-  "password": "",
-  "salt": "",
-  "md5": "",
-  "sha1": "",
-  "sha256": "",
-  "registered": "",
-  "dob": "",
-  "phone": "",
-  "cell": "",
-  "SSN": "",
+  "password": "catsrule!",
+  "salt": "Hjw22O1",
+  "md5": "02h342j01325jaw9229e1175gq9sssy",
+  "sha1": "1m3kx91q9a64hlz8zu4i12j433f5oijsnn8x9dh6",
+  "sha256": "39j201138gx96c55kdpqmmw9nv9v91x8xn21kk3h2314v9vx9s29j3nnsopz8090",
+  "registered": "8462205568",
+  "dob": "01091999",
+  "phone": "(304)-356-6722",
+  "cell": "(304)-224-6670",
+  "SSN": "220-33-4571",
   "picture": {
     "large": "",
     "medium": "",
     "thumbnail": ""
   },
-  "version": "",
-  "nationality": ""
+  "version": "1.2",
+  "nationality": "UK"
 }
