@@ -6,10 +6,10 @@
     "last": "sadler"
   },
   "location": {
-    "street": "",
-    "city":"",
-    "state":"",
-    "zip":""
+    "street": "28894 isle lane",
+    "city":"syrcua",
+    "state":"ny",
+    "zip":"09277"
   },
   "email": "adam.sadler@example.com",
   "username": "funnyguy1224",
@@ -17,21 +17,21 @@
   "username": "onfireforthis09",
   "email": "paul.langley@example.com",
   "username": "tigermountain1197678",
-  "password": "",
-  "salt": "",
-  "md5": "",
-  "sha1": "",
-  "sha256": "",
-  "registered": "",
-  "dob": "",
-  "phone": "",
-  "cell": "",
-  "SSN": "",
+  "password": "tygurs",
+  "salt": "Jqo3209",
+  "md5": "98j233k90122dmz8991h2312dg8xjqo",
+  "sha1": "9n2mc22u8i23jhf7cc8g21l298k4lsaccs5s4dh9",
+  "sha256": "28d821124za25f43lpfuymb3bb2x09z9as12jl1w4453f3cc0c02j2jjjsio0809",
+  "registered": "0119385733",
+  "dob": "02111972",
+  "phone": "(330)-290-5659",
+  "cell": "(992)-245-7129",
+  "SSN": "984-30-3961",
   "picture": {
     "large": "",
     "medium": "",
     "thumbnail": ""
   },
-  "version": "",
-  "nationality": ""
+  "version": "1.2",
+  "nationality": "US"
 }
