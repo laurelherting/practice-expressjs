@@ -6,30 +6,30 @@
     "last": "madrone"
   },
   "location": {
-    "street": "",
-    "city":"",
-    "state":"",
-    "zip":""
+    "street": "12 jupiter street",
+    "city":"baxton",
+    "state":"ky",
+    "zip":"19975"
   },
   "email": "candy.madrone@example.com",
   "username": "boobot112",
   "email": "freddie.smith@example.com",
   "username": "spikeycat123",
-  "password": "",
-  "salt": "",
-  "md5": "",
-  "sha1": "",
-  "sha256": "",
-  "registered": "",
-  "dob": "",
-  "phone": "",
-  "cell": "",
-  "SSN": "",
+  "password": "thisone1",
+  "salt": "Msm12G3",
+  "md5": "81d772b86409fef4476b2561fe8cedw",
+  "sha1": "6f3gf87j0g55jug6db8j89a884f8tataty3r7hh7",
+  "sha256": "86f548856fd88b42siuaaye8zx0x08w4au17rd6d8912s6sx5d40h7lppyux9900",
+  "registered": "0639743106",
+  "dob": "10091991",
+  "phone": "(965)-775-5753",
+  "cell": "(941)-995-5063",
+  "SSN": "850-34-8851",
   "picture": {
     "large": "",
     "medium": "",
     "thumbnail": ""
   },
-  "version": "",
-  "nationality": ""
+  "version": "1.2",
+  "nationality": "UK"
 }
