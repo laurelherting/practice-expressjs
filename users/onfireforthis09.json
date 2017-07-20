@@ -6,30 +6,27 @@
     "last": "flin"
   },
   "location": {
-    "street": "",
-    "city":"",
-    "state":"",
-    "zip":""
+    "street": "843 camben ave",
+    "city":"chico",
+    "state":"fl",
+    "zip":"98277"
   },
   "email": "cameron.flin@example.com",
   "username": "onfireforthis09",
-  "email": "paul.langley@example.com",
-  "username": "tigermountain1197678",
-  "password": "",
-  "salt": "",
-  "md5": "",
-  "sha1": "",
-  "sha256": "",
-  "registered": "",
-  "dob": "",
-  "phone": "",
-  "cell": "",
-  "SSN": "",
+  "salt": "Iwe3922",
+  "md5": "90d443k12368guu3440r2211lp4gjiq",
+  "sha1": "2k4jk09r2h38usa3lo3d98d877j3useybv2m3nb6",
+  "sha256": "43o342124pc87r33gydklqo3pp2i02p4kj32hq7w5435z0sd9w88f7gwlipp7822",
+  "registered": "2874782992",
+  "dob": "07221971",
+  "phone": "(902)-276-3892",
+  "cell": "(290)-354-5982",
+  "SSN": "223-49-2009",
   "picture": {
     "large": "",
     "medium": "",
     "thumbnail": ""
   },
-  "version": "",
-  "nationality": ""
+  "version": "1.2",
+  "nationality": "UK"
 }
