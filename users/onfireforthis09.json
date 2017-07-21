@@ -8,7 +8,7 @@
   "location": {
     "street": "843 camben ave",
     "city":"chico",
-    "state":"fl",
+    "state":"florida",
     "zip":"98277"
   },
   "email": "cameron.flin@example.com",
@@ -23,9 +23,9 @@
   "cell": "(290)-354-5982",
   "SSN": "223-49-2009",
   "picture": {
-    "large": "",
-    "medium": "",
-    "thumbnail": ""
+    "large": "onfireforthis09_lg.jpg",
+    "medium": "onfireforthis09_med.jpg",
+    "thumbnail": "onfireforthis09_sm.jpg"
   },
   "version": "1.2",
   "nationality": "UK"

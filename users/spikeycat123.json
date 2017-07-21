@@ -6,28 +6,28 @@
     "last": "smith"
   },
   "location": {
-    "street": "",
-    "city":"",
-    "state":"",
-    "zip":""
+    "street": "44 sams club ave",
+    "city":"muchop",
+    "state":"indiana",
+    "zip":"96634"
   },
   "email": "freddie.smith@example.com",
   "username": "spikeycat123",
-  "password": "",
-  "salt": "",
-  "md5": "",
-  "sha1": "",
-  "sha256": "",
-  "registered": "",
-  "dob": "",
-  "phone": "",
-  "cell": "",
-  "SSN": "",
-  "picture": "",
-    "large": "",
-    "medium": "",
-    "thumbnail": ""
+  "password": "catsmeows",
+  "salt": "rjh26l1",
+  "md5": "97r901k90654kih7534k9909hy7frsa",
+  "sha1": "0h9sd78s9a23ljb0sd9a75v75300asqsxz9z8yt7",
+  "sha256": "98h459865tr54j87kohbcfb9bv3i87k6vx90mu5f4295v0fr7e52d9huyfsx8578",
+  "registered": "0687535678",
+  "dob": "12121969",
+  "phone": "(354)-754-9332",
+  "cell": "(354)-340-5223",
+  "SSN": "118-56-9252",
+  "picture": {
+    "large": "spikeycat123_lg.jpg",
+    "medium": "spikeycat123_med.jpg",
+    "thumbnail": "spikeycat123_sm.jpg"
   },
-  "version": "",
-  "nationality": ""
+  "version": "1.2",
+  "nationality": "US"
 }

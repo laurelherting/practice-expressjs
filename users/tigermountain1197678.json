@@ -6,28 +6,28 @@
     "last": "langley"
   },
   "location": {
-    "street": "",
-    "city":"",
-    "state":"",
-    "zip":""
+    "street": "1896 17th street",
+    "city":"richter",
+    "state":"montana",
+    "zip":"98376"
   },
   "email": "paul.langley@example.com",
   "username": "tigermountain1197678",
-  "password": "",
-  "salt": "",
-  "md5": "",
-  "sha1": "",
-  "sha256": "",
-  "registered": "",
-  "dob": "",
-  "phone": "",
-  "cell": "",
-  "SSN": "",
+  "password": "lionsden",
+  "salt": "Fap57f0",
+  "md5": "94g855a09678gfa7598j3121lk9hbfd",
+  "sha1": "0j7si75k9j34jas2lg1p21o758b1ophyrt7a8sg6",
+  "sha256": "90h682625sa09d76lkandja9an7a99a0iu95ak8j4182d9sd7s84k2hposns9854",
+  "registered": "9276291028",
+  "dob": "06271956",
+  "phone": "(674)-227-5063",
+  "cell": "(952)-288-2862",
+  "SSN": "955-22-7628",
   "picture": {
-    "large": "",
-    "medium": "",
-    "thumbnail": ""
+    "large": "tigermountain1197678_lg.jpg",
+    "medium": "tigermountain1197678_med.jpg",
+    "thumbnail": "tigermountain1197678_sm.jpg"
   },
-  "version": "",
-  "nationality": ""
+  "version": "1.2",
+  "nationality": "US"
 }
