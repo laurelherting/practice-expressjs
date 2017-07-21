@@ -20,6 +20,12 @@ function getUser(username) {
   return user;
 }
 
+function saveUser(username,data) {
+  const fp = getUserFilePath(username);
+  fs.unlinkAync(fp) // delete the file
+  fs.writeFileSync(fp, JSON.stringify(data, null, 2), {encoding: 'utf8'})
+}
+
 app.engine('hbs',engines.handlebars);
 
 // EH: my personal preference
@@ -42,7 +48,7 @@ app.get('/', (req, res) => {
       console.log('file', file);
       fs.readFile(path.join(__dirname, 'users', file), { encoding: 'utf8' }, (err, data) => {
         const user = JSON.parse(data);
-        console.log('user', user.username);
+        // console.log('user', user.username);
         user.name.full = _.startCase(user.name.first + ' ' + user.name.last);
         users.push(user);
         console.log('users', users.length);
@@ -60,6 +66,20 @@ app.get('/:username', (req, res) => {
     user: user,
     address: user.location
   });
+});
+
+app.put('/:username', (req,res) => {
+  const username = req.params.username;
+  const user = getUser(username);
+  user.location = req.body;
+  saveUser(username, user);
+  res.end(); 
+});
+
+app.delete('/:username', (req,res) => {
+  const fp = getUserFilePath(req.params.username);
+  fs.unlinkSync(fp) // delete the file
+  res.sendStatus(200)
 });
 
 let server = app.listen(3000, () => {
