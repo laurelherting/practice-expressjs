@@ -23,7 +23,7 @@
   "phone": "",
   "cell": "",
   "SSN": "",
-  "picture": "",
+  "picture": {
     "large": "",
     "medium": "",
     "thumbnail": ""

@@ -1,51 +1,67 @@
-let express = require('express')
-let app = express()
+const express = require('express');
+const app = express();
 
-let fs = require('fs')
-let _ = require('lodash')
-let engines = require('consolidate')
+const fs = require('fs');
+const path = require('path');
+const _ = require('lodash');
+const engines = require('consolidate');
+const bodyParser = require('body-parser');
 
-let users = []
+function getUserFilePath(username) {
+  return path.join(__dirname, 'users', username) + '.json';
+}
 
-fs.readFile('users.json', {encoding: 'utf8'}, function (err, data) {
-  if (err) throw err
+function getUser(username) {
+  const user = JSON.parse(fs.readFileSync(getUserFilePath(username, { encoding: 'utf8' })));
+  user.name.full = _.startCase(user.name.first + ' ' + user.name.last);
+  _.keys(user.location).forEach((key) => {
+    user.location[key] = _.startCase(user.location[key]);
+  });
+  return user;
+}
 
-  JSON.parse(data).forEach(function (user) {
-    user.name.full = _.startCase(user.name.first + ' ' + user.name.last)
-    users.push(user)
-  })
+app.engine('hbs',engines.handlebars);
 
-})
-
-app.engine('hbs',engines.handlebars)
-
-app.set('views', __dirname + '/views')
-app.set('view engine', 'hbs')
+// EH: my personal preference
+app.set('views', __dirname + '/views');
+app.set('view engine', 'hbs');
 
 app.use('/profilepics', express.static(__dirname + '/images'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', function (req, res) {
-  res.render('index', {users: users})
-})
+// avoid fav.ico error
+app.get('/favicon.ico', (req, res) => {
+  res.end();
+});
 
-app.get('/:username', function (req, res) {
-  console.log('username', req.params.username);
-  // skip requests for favicon.ico
-  if (req.params.username === 'favicon.ico') {
-    return;
-  }
-  let username = req.params.username
-  // userData is a large array
-  // iterate through array and find the matching username then return that array item
-  let userData = users.find(u => {
-    if (u.username === username) {
-      return u;
-    }
+app.get('/', (req, res) => {
+  const users = [];
+  fs.readdir('users', (err, files) => {
+    console.log('files', files);
+    files.forEach((file) => {
+      console.log('file', file);
+      fs.readFile(path.join(__dirname, 'users', file), { encoding: 'utf8' }, (err, data) => {
+        const user = JSON.parse(data);
+        console.log('user', user.username);
+        user.name.full = _.startCase(user.name.first + ' ' + user.name.last);
+        users.push(user);
+        console.log('users', users.length);
+        if (users.length === files.length) res.render('index', { users: users });
+      });
+    });
   });
-  console.log('userData', userData);
-  res.render('user', {user: userData})
-})
+});
 
-let server = app.listen(3000, function () {
+// EH: fixed
+app.get('/:username', (req, res) => {
+  const username = req.params.username;
+  const user = getUser(username);
+  res.render('user', {
+    user: user,
+    address: user.location
+  });
+});
+
+let server = app.listen(3000, () => {
   console.log('Server running at http://localhost:' + server.address().port)
-})
+});
