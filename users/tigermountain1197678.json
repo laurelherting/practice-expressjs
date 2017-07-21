@@ -8,7 +8,7 @@
   "location": {
     "street": "1896 17th street",
     "city":"richter",
-    "state":"mo",
+    "state":"montana",
     "zip":"98376"
   },
   "email": "paul.langley@example.com",
@@ -24,9 +24,9 @@
   "cell": "(952)-288-2862",
   "SSN": "955-22-7628",
   "picture": {
-    "large": "",
-    "medium": "",
-    "thumbnail": ""
+    "large": "tigermountain1197678_lg.jpg",
+    "medium": "tigermountain1197678_med.jpg",
+    "thumbnail": "tigermountain1197678_sm.jpg"
   },
   "version": "1.2",
   "nationality": "US"

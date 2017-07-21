@@ -24,9 +24,9 @@
   "cell": "(941)-995-5063",
   "SSN": "850-34-8851",
   "picture": {
-    "large": "",
-    "medium": "",
-    "thumbnail": ""
+    "large": "boobot112_lg.jpg",
+    "medium": "boobot112_med.jpg",
+    "thumbnail": "boobot112_sm.jpg"
   },
   "version": "1.2",
   "nationality": "UK"
