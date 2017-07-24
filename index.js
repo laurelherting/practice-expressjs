@@ -20,13 +20,13 @@ function getUser(username) {
   return user;
 }
 
-function saveUser(username,data) {
+function saveUser(username, data) {
   const fp = getUserFilePath(username);
   fs.unlinkAync(fp) // delete the file
   fs.writeFileSync(fp, JSON.stringify(data, null, 2), {encoding: 'utf8'})
 }
 
-app.engine('hbs',engines.handlebars);
+app.engine('hbs', engines.handlebars);
 
 // EH: my personal preference
 app.set('views', __dirname + '/views');
