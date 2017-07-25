@@ -64,6 +64,8 @@ function verifyUser (req, res, next) {
   fs.exists(fp, function (yes) {
     if(yes) {
       next()
+    } else {
+      next('route');
     };
   });
 };
@@ -76,6 +78,10 @@ app.get('/:username', verifyUser, (req, res) => {
     user: user,
     address: user.location
   });
+});
+
+app.get('/:foo', (req,res) => {
+  res.send('WHOOPS');
 });
 
 app.put('/:username', (req, res) => {
