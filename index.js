@@ -7,10 +7,6 @@ const _ = require('lodash');
 const engines = require('consolidate');
 const bodyParser = require('body-parser');
 
-function getUserFilePath(username) {
-  return path.join(__dirname, 'users', username) + '.json';
-}
-
 function getUser(username) {
   const user = JSON.parse(fs.readFileSync(getUserFilePath(username, { encoding: 'utf8' })));
   user.name.full = _.startCase(user.name.first + ' ' + user.name.last);
@@ -20,25 +16,17 @@ function getUser(username) {
   return user;
 }
 
-function saveUser(username, data) {
+function getUserFilePath(username) {
+  return path.join(__dirname, 'users', username) + '.json';
+}
+
+function saveUser(username,data) {
   const fp = getUserFilePath(username);
   fs.unlinkAync(fp) // delete the file
   fs.writeFileSync(fp, JSON.stringify(data, null, 2), {encoding: 'utf8'})
 }
 
-function verifyUser(req, res, next) {
-  const fp = getUserFilePath(req.params.username);
-
-  fs.exists(fp, function (yes) {
-    if (yes) {
-      next()
-    } else {
-      res.redirect('/error/' + req.params.username);
-    }
-  });
-}
-
-app.engine('hbs', engines.handlebars);
+app.engine('hbs',engines.handlebars);
 
 // EH: my personal preference
 app.set('views', __dirname + '/views');
@@ -71,17 +59,13 @@ app.get('/', (req, res) => {
 });
 
 // EH: fixed
-app.get('/data/:username', function (req, res) {
+app.get('/:username', (req, res) => {
   const username = req.params.username;
   const user = getUser(username);
   res.render('user', {
     user: user,
     address: user.location
   });
-});
-
-app.get('/:foo', (req, res) {
-  res.send('WHOOPS');
 });
 
 app.put('/:username', (req,res) => {
