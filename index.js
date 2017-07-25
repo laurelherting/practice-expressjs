@@ -20,7 +20,7 @@ function getUserFilePath(username) {
   return path.join(__dirname, 'users', username) + '.json';
 }
 
-function saveUser(username,data) {
+function saveUser(username, data) {
   const fp = getUserFilePath(username);
   fs.unlinkAync(fp) // delete the file
   fs.writeFileSync(fp, JSON.stringify(data, null, 2), {encoding: 'utf8'})
@@ -58,8 +58,18 @@ app.get('/', (req, res) => {
   });
 });
 
+function verifyUser (req, res, next) {
+  const fp = getUserFilePath(req.params.username);
+  
+  fs.exists(fp, function (yes) {
+    if(yes) {
+      next()
+    };
+  });
+};
+
 // EH: fixed
-app.get('/:username', (req, res) => {
+app.get('/:username', verifyUser, (req, res) => {
   const username = req.params.username;
   const user = getUser(username);
   res.render('user', {
@@ -68,7 +78,7 @@ app.get('/:username', (req, res) => {
   });
 });
 
-app.put('/:username', (req,res) => {
+app.put('/:username', (req, res) => {
   const username = req.params.username;
   const user = getUser(username);
   user.location = req.body;
