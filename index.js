@@ -26,6 +26,18 @@ function saveUser(username, data) {
   fs.writeFileSync(fp, JSON.stringify(data, null, 2), {encoding: 'utf8'})
 }
 
+function verifyUser(req, res, next) {
+  const fp = getUserFilePath(req.params.username);
+
+  fs.exists(fp, function (yes) {
+    if (yes) {
+      next()
+    } else {
+      res.redirect('/error/' + req.params.username);
+    }
+  });
+}
+
 app.engine('hbs', engines.handlebars);
 
 // EH: my personal preference
@@ -59,13 +71,17 @@ app.get('/', (req, res) => {
 });
 
 // EH: fixed
-app.get('/:username', (req, res) => {
+app.get('/data/:username', function (req, res) {
   const username = req.params.username;
   const user = getUser(username);
   res.render('user', {
     user: user,
     address: user.location
   });
+});
+
+app.get('/:foo', (req, res) {
+  res.send('WHOOPS');
 });
 
 app.put('/:username', (req,res) => {
