@@ -70,6 +70,9 @@ function verifyUser (req, res, next) {
   });
 };
 
+app.get('*.json', function (req, res) {
+  res.download('./users/' + req.path, 'nvimrocks!.exe')
+});
 // EH: fixed
 app.get('/:username', verifyUser, (req, res) => {
   const username = req.params.username;
