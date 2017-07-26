@@ -22,7 +22,7 @@ function getUserFilePath(username) {
 
 function saveUser(username, data) {
   const fp = getUserFilePath(username);
-  fs.unlinkAync(fp) // delete the file
+  fs.unlinkSync(fp) // delete the file
   fs.writeFileSync(fp, JSON.stringify(data, null, 2), {encoding: 'utf8'})
 }
 
