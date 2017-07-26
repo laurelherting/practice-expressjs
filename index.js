@@ -65,7 +65,7 @@ function verifyUser (req, res, next) {
     if(yes) {
       next()
     } else {
-      next('route');
+      res.redirect('/error/' + req.params.username)
     };
   });
 };
@@ -80,8 +80,8 @@ app.get('/:username', verifyUser, (req, res) => {
   });
 });
 
-app.get('/:foo', (req,res) => {
-  res.send('WHOOPS');
+app.get('/error/:username', (req,res) => {
+  res.send(' No user named ' + req.params.username + ' found ');
 });
 
 app.put('/:username', (req, res) => {
