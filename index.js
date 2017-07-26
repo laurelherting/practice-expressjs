@@ -64,6 +64,8 @@ function verifyUser (req, res, next) {
   fs.exists(fp, function (yes) {
     if(yes) {
       next()
+    } else {
+      res.redirect('/error/' + req.params.username)
     };
   });
 };
@@ -76,6 +78,10 @@ app.get('/:username', verifyUser, (req, res) => {
     user: user,
     address: user.location
   });
+});
+
+app.get('/error/:username', (req,res) => {
+  res.send(' No user named ' + req.params.username + ' found ');
 });
 
 app.put('/:username', (req, res) => {
