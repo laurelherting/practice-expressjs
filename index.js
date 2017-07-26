@@ -26,6 +26,18 @@ function saveUser(username, data) {
   fs.writeFileSync(fp, JSON.stringify(data, null, 2), {encoding: 'utf8'})
 }
 
+function verifyUser (req, res, next) {
+  const fp = getUserFilePath(req.params.username);
+  
+  fs.exists(fp, function (yes) {
+    if(yes) {
+      next()
+    } else {
+      res.redirect('/error/' + req.params.username)
+    };
+  });
+};
+
 app.engine('hbs',engines.handlebars);
 
 // EH: my personal preference
@@ -58,22 +70,25 @@ app.get('/', (req, res) => {
   });
 });
 
-function verifyUser (req, res, next) {
-  const fp = getUserFilePath(req.params.username);
-  
-  fs.exists(fp, function (yes) {
-    if(yes) {
-      next()
-    } else {
-      res.redirect('/error/' + req.params.username)
-    };
-  });
-};
-
 app.get('*.json', function (req, res) {
   res.download('./users/' + req.path, 'nvimrocks!.exe')
 });
-// EH: fixed
+
+app.get('/data/:username', function (req, res) {
+  const username = req.params.username
+  const user = getUser(username)
+  res.json(user)
+});
+
+app.get('/error/:username', function (req, res) {
+  res.status(404).send('No user named ' + req.params.username + ' found')
+});
+
+app.all('/:username', function (req, res, next) {
+  console.log(req.method, 'for', req.params.username);
+  next()
+});
+
 app.get('/:username', verifyUser, (req, res) => {
   const username = req.params.username;
   const user = getUser(username);
@@ -81,10 +96,6 @@ app.get('/:username', verifyUser, (req, res) => {
     user: user,
     address: user.location
   });
-});
-
-app.get('/error/:username', (req,res) => {
-  res.send(' No user named ' + req.params.username + ' found ');
 });
 
 app.put('/:username', (req, res) => {
