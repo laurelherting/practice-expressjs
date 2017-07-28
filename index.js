@@ -78,7 +78,7 @@ app.get('*.json', (req, res) => {
 
 app.get('/data/:username', (req, res) => {
   const username = req.params.username
-  const user = getUser(username)
+  const user = helpers.getUser(username)
   res.json(user)
 });
 
@@ -92,9 +92,9 @@ app.all('/:username', (req, res, next) => {
   next()
 });
 
-app.get('/:username', verifyUser, (req, res) => {
+app.get(helpers.verifyUser, (req, res) => {
   const username = req.params.username;
-  const user = getUser(username);
+  const user = helpers.getUser(username);
   res.render('user', {
     user: user,
     address: user.location
@@ -105,12 +105,12 @@ app.put('/:username', (req, res) => {
   const username = req.params.username;
   const user = getUser(username);
   user.location = req.body;
-  saveUser(username, user);
+  helpers.saveUser(username, user);
   res.end(); 
 });
 
 app.delete('/:username', (req,res) => {
-  const fp = getUserFilePath(req.params.username);
+  const fp = helpers.getUserFilePath(req.params.username);
   fs.unlinkSync(fp) // delete the file
   res.sendStatus(200)
 });
