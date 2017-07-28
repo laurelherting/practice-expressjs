@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 const engines = require('consolidate');
+const helpers = require('./helpers');
 const bodyParser = require('body-parser');
 
 function getUser(username) {
@@ -85,6 +86,7 @@ app.get('/error/:username', (req, res) => {
   res.status(404).send('No user named ' + req.params.username + ' found')
 });
 
+app.route('/:username')
 app.all('/:username', (req, res, next) => {
   console.log(req.method, 'for', req.params.username);
   next()
