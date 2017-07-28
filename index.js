@@ -47,9 +47,9 @@ app.get('*.json', (req, res) => {
 });
 
 app.get('/data/:username', (req, res) => {
-  const username = req.params.username
-  const user = helpers.getUser(username)
-  res.json(user)
+  const username = req.params.username;
+  const readable = fs.createReadStream('./users/' + username + '.json');
+  readable.pipe(res)
 });
 
 app.get('/error/:username', (req, res) => {
