@@ -5,7 +5,9 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 const engines = require('consolidate');
-const helpers = require('./helpers');
+
+const JSONStream = require('JSONStream');
+
 const bodyParser = require('body-parser');
 
 app.engine('hbs',engines.handlebars);
@@ -50,6 +52,17 @@ app.get('/data/:username', (req, res) => {
   const username = req.params.username;
   const readable = fs.createReadStream('./users/' + username + '.json');
   readable.pipe(res)
+});
+
+app.get('./users/by/:gender', (req,res) => {
+  const gender = req.params.gender;
+  const readable = fs.createReadStream('users.json')
+  readable
+    .pipe(JSONStream.parse('*'), (user) => {
+      if (user.gender === gender) return user.name
+    })
+    .pipe(JSONStream.stringify('[\n ', ',\n ', '\n]\n'))
+    .pipe(res)
 });
 
 app.get('/error/:username', (req, res) => {
