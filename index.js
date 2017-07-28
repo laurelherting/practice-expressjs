@@ -55,9 +55,11 @@ app.get('/', (req, res) => {
   const users = [];
   fs.readdir('users', (err, files) => {
     console.log('files', files);
+    if (err) throw err;
     files.forEach((file) => {
       console.log('file', file);
       fs.readFile(path.join(__dirname, 'users', file), { encoding: 'utf8' }, (err, data) => {
+        if (err) throw err;
         const user = JSON.parse(data);
         // console.log('user', user.username);
         user.name.full = _.startCase(user.name.first + ' ' + user.name.last);
