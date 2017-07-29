@@ -54,7 +54,7 @@ app.get('/data/:username', (req, res) => {
   readable.pipe(res)
 });
 
-app.get('./users/by/:gender', (req,res) => {
+app.get('/users/by/:gender', (req,res) => {
   const gender = req.params.gender;
   const readable = fs.createReadStream('users.json')
   readable
