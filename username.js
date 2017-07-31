@@ -6,10 +6,11 @@ const router = express.Router({
   mergeParams: true
 });
 
-router.all('/', (req, res, next) => {
-  console.log(req.method, 'for', req.params.username);
+router.use((req, res, next) => {
+  console.log(req.method, 'for', req.params.username, ' at ' + req.path);
   next()
 });
+
 
 router.get('/', helpers.verifyUser, (req, res) => {
   const username = req.params.username;
