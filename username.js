@@ -11,7 +11,6 @@ router.use((req, res, next) => {
   next()
 });
 
-
 router.get('/', helpers.verifyUser, (req, res) => {
   const username = req.params.username;
   const user = helpers.getUser(username);
