@@ -25,7 +25,9 @@
     "express": "^4.15.3",
     "handlebars": "^4.0.10",
     "jade": "^1.11.0",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "mongodb": "^2.2.30",
+    "mongoose": "^4.11.5"
   },
   "devDepencies": {
     "nodemon": "^1.11.0"
