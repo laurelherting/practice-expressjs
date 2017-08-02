@@ -3,6 +3,7 @@ const helpers = require('./helpers');
 const fs = require('fs');
 
 const User = require('./db').User;
+
 const router = express.Router({
   mergeParams: true
 });
@@ -29,6 +30,7 @@ router.use((err, req, res, next) => {
 
 router.put('/', (req, res) => {
   const username = req.params.username;
+
   User.findOneAndUpdate({username: username}, {location: req.body}, (err, user) => {
     res.end()
   });
