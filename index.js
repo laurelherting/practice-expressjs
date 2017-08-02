@@ -5,10 +5,9 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 const engines = require('consolidate');
-
 const JSONStream = require('JSONStream');
-
 const bodyParser = require('body-parser');
+const User = require('./db').User;
 
 app.engine('hbs',engines.handlebars);
 
@@ -25,22 +24,8 @@ app.get('/favicon.ico', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  const users = [];
-  fs.readdir('users', (err, files) => {
-    console.log('files', files);
-    if (err) throw err
-    files.forEach((file) => {
-      console.log('file', file);
-      fs.readFile(path.join(__dirname, 'users', file), { encoding: 'utf8' }, (err, data) => {
-        if (err) throw err
-        const user = JSON.parse(data);
-        // console.log('user', user.username);
-        user.name.full = _.startCase(user.name.first + ' ' + user.name.last);
-        users.push(user);
-        console.log('users', users.length);
-        if (users.length === files.length) res.render('index', { users: users });
-      });
-    });
+  User.find({}, (err, users) => {
+    res.render('index', {users: users});
   });
 });
 
