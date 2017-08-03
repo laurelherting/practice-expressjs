@@ -21,11 +21,33 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // avoid fav.ico error
 app.get('/favicon.ico', (req, res) => {
   res.end();
-});
+  console.log('working here')
+})
+  console.log('working here also')
 
-app.get('/', (req, res) => {
-  User.find({}, (err, users) => {
-    res.render('index', {users: users});
+/* app.get('/', function (req, res) {
+  User.find({}, function (err, users) {
+
+    console.log('this is where it broke?')
+    res.render('index', {users: users})
+    console.log('not working here')
+  })
+})
+*/
+
+ app.get('/', (req, res) => {
+  const users = [];
+  fs.readdir('users', (err, files) => {
+    if (err) throw err;
+    files.forEach((file) => {
+      fs.readFile(path.join(__dirname, 'users', file), {encoding: 'utf8'}, (err, data) => {
+        if (err) throw err;
+        const user = JSON.parse(data);
+        user.name.full = _.startCase(user.name.first + ' ' + user.name.last);
+        users.push(user);
+        if (users.length === files.length) res.render('index', {users: users});
+      });
+    });
   });
 });
 
